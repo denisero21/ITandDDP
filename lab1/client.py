@@ -1,29 +1,31 @@
 import socket
+import threading
+import time
 
-# Initialize the client UDP socket
+# Запрос данных у пользователя
+name = input("Введите свое имя: ")
+sender_port = int(input("Введите порт отправителя: "))
+receiver_port = int(input("Введите порт получателя: "))
+
+# Создание udp сокетов
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+client_socket.bind(("localhost", sender_port))
 
-# Prompt the user for their name and the receiver's name
-sender_name = input('Enter your name: ')
-receiver_name = input('Enter the receiver\'s name: ')
+recv_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-# Loop to send messages to the receiver
-seq_num = 0
+# Прием сообщений
+def recv_msg():
+    while True:
+        msg, addr = client_socket.recvfrom(1024)
+        print(msg.decode())
+
+threading.Thread(target=recv_msg).start()
+
+# Отправка и получение сообщений
 while True:
-    # Prompt the user for a message to send
-    message = input(f'{sender_name} > ')
-
-    # Increment the sequence number
-    seq_num += 1
-
-    # Construct the message with the sequence number, sender name, and message text
-    message_text = message + '\0'
-    full_message = f'{seq_num}|{sender_name}|{message_text}'
-
-    # Send the message to the receiver
-    client_socket.sendto(full_message.encode(), ('localhost', 5000))
-
-    # Wait for a response from the server to confirm receipt
-    response, server_address = client_socket.recvfrom(1024)
-    if response.decode() != full_message:
-        print('Message was not received by server')
+    message = input('')
+    struct = time.localtime(time.time())
+    now = time.strftime('%d.%m.%Y %H:%M', struct)
+    print(now)
+    message = f'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz\n{name}: {message}\n{now}\nzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
+    recv_socket.sendto(message.encode(), ("localhost", receiver_port))
