@@ -5,6 +5,7 @@
 
 Дизайн выполнен в редакторе Figma
 Ссылка: https://www.figma.com/file/PEhhpsm9aFpLjEfvqm7x24/Site?node-id=2%3A12&t=vdrVgEGAULarBr44-1
+
 ---
 
 **Главная страница**
