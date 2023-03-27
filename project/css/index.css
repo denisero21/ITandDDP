@@ -1,0 +1,314 @@
+body{
+    background-color: black;
+    color:aliceblue;
+    font-family:Arial, Helvetica, sans-serif;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.header{
+    margin-top: 10px;
+    display: flex;
+}
+
+#logo{
+    flex: 2;
+    height: 30px;
+    font-size: 30px;
+}
+
+#logo span{
+    font-size: 35px;
+}
+
+#logo label:hover{
+    cursor: pointer;
+}
+
+#navigation{
+    padding-top: 15px;
+    flex: 2;
+}
+
+#navigation td{
+    display: flex;
+}
+
+#navigation tr{
+    flex: 1;
+}
+
+#cart{
+    flex: 1;
+    text-align: right;
+    padding-top: 15px;
+}
+
+/* #main{
+    margin-left: -37px;
+    margin-right: -37px;
+}
+
+#main img{
+    margin-top: 20px;
+    width: 1462px;
+    height: 500px;
+}
+
+#main h1{
+    padding-left: 37px;
+    padding-top: 60px;
+}
+
+#main h4{
+    padding-left: 37px;
+    width: 580px;
+    padding-bottom: 60px;
+    font-weight: normal;
+}
+
+#main button{
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #EB5F27;
+    border: none;
+    color: aliceblue;
+    margin-left: 37px;
+    margin-bottom: 40px;
+} */
+
+#main {
+    position: relative; /* добавляем относительное позиционирование для контейнера #main */
+    margin-left: -37px;
+    margin-right: -37px;
+}
+
+#main img {
+    margin-top: 20px;
+    width: 1465px;
+    height: 450px;
+}
+
+#main h1 {
+    position: absolute; /* добавляем абсолютное позиционирование для заголовка */
+    top: 100px; /* позиционируем заголовок сверху */
+    left: 37px; /* позиционируем заголовок слева */
+    z-index: 1; /* устанавливаем индекс для заголовка выше, чем у картинки */
+}
+
+#main h4 {
+    position: absolute; /* добавляем абсолютное позиционирование для описания */
+    top: 160px; /* позиционируем описание сверху */
+    left: 37px; /* позиционируем описание слева */
+    width: 580px;
+    padding-bottom: 60px;
+    font-weight: normal;
+    z-index: 1; /* устанавливаем индекс для описания выше, чем у картинки */
+}
+
+#main button {
+    position: absolute; /* добавляем абсолютное позиционирование для кнопки */
+    bottom: 30px; /* позиционируем кнопку снизу */
+    left: 37px; /* позиционируем кнопку слева */
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #EB5F27;
+    border: none;
+    color: aliceblue;
+    z-index: 1; /* устанавливаем индекс для кнопки выше, чем у картинки */
+}
+
+
+#main button:hover{
+    cursor: pointer;
+    border:solid;
+    border-width: 5px;
+    border-color: #EB5F27;
+    transition: .3s;
+    position: absolute; /* добавляем абсолютное позиционирование для кнопки */
+    bottom: 30px; /* позиционируем кнопку снизу */
+    left: 37px; /* позиционируем кнопку слева */
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+    color: aliceblue;
+    z-index: 1; /* устанавливаем индекс для кнопки выше, чем у картинки */
+    
+}
+
+#about{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+}
+
+#about img {
+    width: 450px;
+    height: 400px;
+    position: relative;
+    z-index: 1;
+}
+
+#about h4 {
+    width: 800px;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    /* margin-left: -180px; */
+    font-weight: normal;
+}
+
+#img-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#text-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#empty{
+    width: 200px;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+
+#about button{
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #009E84;
+    border: none;
+    color: aliceblue;
+}
+
+#about button:hover{
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: black;
+    border:solid;
+    border-width: 5px;
+    border-color: #009E84;
+    color: aliceblue;
+    transition: .3s;
+}
+
+#products-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+#products{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+}
+
+#products button, #products-header button{
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #009E84;
+    border: none;
+    color: aliceblue;
+    transition: .3s;
+    
+}
+
+#products button:hover, #products-header button:hover{
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: black;
+    border:solid;
+    border-width: 5px;
+    border-color: #009E84;
+    color: aliceblue;
+    transition: .3s;
+}
+
+#product{
+    width: 450px;
+    height: 635px;
+    border:solid;
+    border-width: 2px;
+    border-color: #545454;
+    border-radius: 5px;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+#circle img{
+    margin: 10px 50px 0 50px;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: solid;
+    border-width: 7px;
+    border-color: #EB5F27;
+}
+
+#product h3{
+    text-align: center;
+}
+
+#product h4{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+#product button{
+    margin: 0 175px 0 175px;
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: #009E84;
+    color: aliceblue;
+    border: none;
+}
+
+#product button:hover{
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    background-color: black;
+    border: solid 5px #009E84;
+    border-radius: 30px;
+    color: aliceblue;
+    transition: .3s;
+}
+
+#line{
+    margin-top: 20px;
+    /* margin-bottom: 10px; */
+    border: solid;
+    border-top: 2px;
+    border-color: #545454;
+}
+
+#info{
+    font-weight: normal;
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 56vw;
+}
+
+#info h3,h4{
+    font-weight: normal;
+}
+
+a{
+    text-decoration: none !important;
+    color: aliceblue;
+}

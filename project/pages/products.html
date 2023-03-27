@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>BakerHouse</title>
+  <link rel="stylesheet" href="../css/products.css">
+</head>
+<body>
+    <header class="header">
+        <div id="logo"> 
+            <a href="../index.html"><b><label style="color:#EB5F27"><span>B</span>aker</label><label style="color:#009E84"><span>H</span>ouse</label></b></a>
+        </div>
+        <nav id="navigation">
+            <td>
+                <tr><a href="../index.html">Главная</a></tr>
+                <tr><a href="products.html">Каталог</a></tr>
+                <tr><a href="about.html">О нас</a></tr>
+                <tr><a href="contacts.html">Контакты</a></tr>
+            </td>
+        </nav>
+        <div id="cart">
+            <td>
+                <tr><a href="auth.html">Войти</a></tr>
+                <tr><a href="cart.html">Корзина</a></tr>
+            </td>
+        </div>
+    </header>
+    <main>
+        <div id="line"></div>
+        <div id="products">
+            <!-- <div id="product">
+                <div id="circle">
+                    <img src="../assets/product.jpg" alt="">
+                </div>
+                <h3>Вид 1</h3>
+                <h4>Шедевр кондитерского искусства, который порадует Вас сочными слоями нежного бисквита
+                        и воздушным кремом, украшенным свежими фруктами и ягодами. Насыщенный вкус и яркая ароматика 
+                        этого торта станут настоящим украшением любого праздника.</h4>
+                <h3>12 BYN</h3>
+                <button>В корзину</button>
+            </div> -->
+            <template id="product-template">
+                <div id="product">
+                  <div id="circle">
+                    <img src="../assets/product.jpg" alt="">
+                  </div>
+                  <h3>Вид 1</h3>
+                  <h4>Шедевр кондитерского искусства, который порадует Вас сочными слоями нежного бисквита
+                    и воздушным кремом, украшенным свежими фруктами и ягодами. Насыщенный вкус и яркая ароматика 
+                    этого торта станут настоящим украшением любого праздника.</h4>
+                  <h3>12 BYN</h3>
+                  <button>В корзину</button>
+                </div>
+              </template>
+              
+              <!-- Используем цикл for для повторения шаблона -->
+              <div id="products-container">
+                <script>
+                  // Создаем переменную для контейнера, в котором будут отображаться продукты
+                  var container = document.getElementById("products-container");
+                  
+                  // Создаем цикл for для повторения шаблона
+                  for (var i = 0; i < 12; i++) {
+                    // Создаем элемент на основе шаблона
+                    var product = document.importNode(document.getElementById("product-template").content, true);
+                    
+                    // Добавляем элемент в контейнер
+                    container.appendChild(product);
+                  }
+                </script>
+              </div>
+        </div>
+    </main>
+</body>
+</html>
