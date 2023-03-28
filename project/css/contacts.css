@@ -61,9 +61,25 @@ a{
     display: flex;
     grid-template-columns: 1fr 1fr;
     row-gap: 10px;
-    column-gap: 56vw;
+    column-gap: 30%;
+    justify-content: space-between;
 }
 
 #info h3,h4{
     font-weight: normal;
+}
+
+@media screen and (max-width: 770px) {
+    .header{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #cart{
+        flex: 1;
+        padding-top: 15px;
+        text-align: left;
+        flex-direction: column;
+    }
 }

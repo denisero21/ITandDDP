@@ -118,10 +118,24 @@ a{
   #products-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    justify-content: center;
-    column-gap: 20px;
-    row-gap: 20px;
+    justify-content: space-between;
+    column-gap: 1%;
+    row-gap: 1%;
   }
   
+  @media screen and (max-width: 770px) {
+    .header{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #cart{
+        flex: 1;
+        padding-top: 15px;
+        text-align: left;
+        flex-direction: column;
+    }
+}
   
   

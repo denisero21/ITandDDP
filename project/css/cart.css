@@ -11,17 +11,17 @@ body{
     display: flex;
 }
 
-#logo{
+#header__logo{
     flex: 2;
     height: 30px;
     font-size: 30px;
 }
 
-#logo span{
+#header__logo span{
     font-size: 35px;
 }
 
-#logo label:hover{
+#header__logo label:hover{
     cursor: pointer;
 }
 
@@ -63,7 +63,7 @@ a{
 }
 
 #products{
-    width: 50%;
+    width: 60%;
     height: 100%;
     flex-direction: column;
     margin-right: 10px;
@@ -74,6 +74,7 @@ a{
     border-radius: 15px;
     padding-left: 10px;
     margin-bottom: 5px;
+    width: 98%;
 }
 
 #product:hover{
@@ -90,6 +91,7 @@ a{
 #info{
     flex-direction: column;
     margin-left: 10px;
+    width: 35%;
 }
 
 #info label{
@@ -101,7 +103,7 @@ a{
 }
 
 #adress{
-    width: 300px;
+    width: 60%;
     border: solid 3px #545454;
     border-radius: 10px;
     background-color: black;
@@ -117,7 +119,7 @@ a{
 }
 
 #time{
-    width: 120px;
+    width: 30%;
     border: solid 3px #545454;
     border-radius: 10px;
     background-color: black;
@@ -134,7 +136,9 @@ a{
 }
 
 #note{
-    width: 550px;
+    outline: none;
+    width: 100%;
+    padding: 10px;
     border: solid 3px #545454;
     border-radius: 10px;
     background-color: black;
@@ -164,5 +168,20 @@ a{
     background-color: black;
     transition: .3s;
     cursor: pointer;
+}
+
+@media screen and (max-width: 770px) {
+    .header{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #cart{
+        flex: 1;
+        padding-top: 15px;
+        text-align: left;
+        flex-direction: column;
+    }
 }
 

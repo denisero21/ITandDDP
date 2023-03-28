@@ -11,23 +11,25 @@ body{
     display: flex;
 }
 
-#logo{
+#header__logo{
     flex: 2;
     height: 30px;
     font-size: 30px;
+    flex-direction: column;
 }
 
-#logo span{
+#header__logo span{
     font-size: 35px;
 }
 
-#logo label:hover{
+#header__logo label:hover{
     cursor: pointer;
 }
 
 #navigation{
     padding-top: 15px;
     flex: 2;
+    flex-direction: column;
 }
 
 #navigation td{
@@ -42,41 +44,8 @@ body{
     flex: 1;
     text-align: right;
     padding-top: 15px;
+    flex-direction: column;
 }
-
-/* #main{
-    margin-left: -37px;
-    margin-right: -37px;
-}
-
-#main img{
-    margin-top: 20px;
-    width: 1462px;
-    height: 500px;
-}
-
-#main h1{
-    padding-left: 37px;
-    padding-top: 60px;
-}
-
-#main h4{
-    padding-left: 37px;
-    width: 580px;
-    padding-bottom: 60px;
-    font-weight: normal;
-}
-
-#main button{
-    width: 200px;
-    height: 50px;
-    border-radius: 30px;
-    background-color: #EB5F27;
-    border: none;
-    color: aliceblue;
-    margin-left: 37px;
-    margin-bottom: 40px;
-} */
 
 #main {
     position: relative; /* добавляем относительное позиционирование для контейнера #main */
@@ -86,38 +55,39 @@ body{
 
 #main img {
     margin-top: 20px;
-    width: 1465px;
-    height: 450px;
+    width: 100%;
+    height: 500px;
 }
 
 #main h1 {
-    position: absolute; /* добавляем абсолютное позиционирование для заголовка */
-    top: 100px; /* позиционируем заголовок сверху */
-    left: 37px; /* позиционируем заголовок слева */
-    z-index: 1; /* устанавливаем индекс для заголовка выше, чем у картинки */
+    position: absolute;
+    top: 15%; 
+    left: 37px;
+    z-index: 1; 
+    width: 70%;
 }
 
 #main h4 {
-    position: absolute; /* добавляем абсолютное позиционирование для описания */
-    top: 160px; /* позиционируем описание сверху */
-    left: 37px; /* позиционируем описание слева */
-    width: 580px;
+    position: absolute; 
+    top: 30%; 
+    left: 37px; 
+    width: 40%;
     padding-bottom: 60px;
     font-weight: normal;
-    z-index: 1; /* устанавливаем индекс для описания выше, чем у картинки */
+    z-index: 1; 
 }
 
 #main button {
-    position: absolute; /* добавляем абсолютное позиционирование для кнопки */
-    bottom: 30px; /* позиционируем кнопку снизу */
-    left: 37px; /* позиционируем кнопку слева */
+    position: absolute; 
+    bottom: 30px; 
+    left: 37px;
     width: 200px;
     height: 50px;
     border-radius: 30px;
     background-color: #EB5F27;
     border: none;
     color: aliceblue;
-    z-index: 1; /* устанавливаем индекс для кнопки выше, чем у картинки */
+    z-index: 1; 
 }
 
 
@@ -127,35 +97,35 @@ body{
     border-width: 5px;
     border-color: #EB5F27;
     transition: .3s;
-    position: absolute; /* добавляем абсолютное позиционирование для кнопки */
-    bottom: 30px; /* позиционируем кнопку снизу */
-    left: 37px; /* позиционируем кнопку слева */
+    position: absolute; 
+    bottom: 30px; 
+    left: 37px; 
     width: 200px;
     height: 50px;
     background-color: transparent;
     color: aliceblue;
-    z-index: 1; /* устанавливаем индекс для кнопки выше, чем у картинки */
+    z-index: 1; 
     
 }
 
 #about{
     display: flex;
     grid-template-columns: 1fr 1fr;
-    row-gap: 20px;
+    row-gap: 10%;
 }
 
 #about img {
-    width: 450px;
+    width: 400px;
     height: 400px;
     position: relative;
     z-index: 1;
 }
 
 #about h4 {
-    width: 800px;
+    margin-left: 10%;
+    width: 75%;
     grid-row-start: 2;
     grid-row-end: 2;
-    /* margin-left: -180px; */
     font-weight: normal;
 }
 
@@ -176,6 +146,7 @@ body{
 }
 
 #about button{
+    margin-left: 10%;
     width: 200px;
     height: 50px;
     border-radius: 30px;
@@ -205,9 +176,12 @@ body{
 }
 
 #products{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 20px;
+    display: flex;
+    gap: 20px;
+    /* flex-wrap: wrap; */
+    /* grid-template-columns: 1fr 1fr;
+    row-gap: 20px; */
+    /* justify-content: space-between; */
 }
 
 #products button, #products-header button{
@@ -235,20 +209,22 @@ body{
 }
 
 #product{
-    width: 450px;
-    height: 635px;
+    width: 80%;
+    /* min-width: 40%; */
+    height: 45%;
     border:solid;
     border-width: 2px;
     border-color: #545454;
     border-radius: 5px;
-    grid-row-start: 2;
-    grid-row-end: 2;
+    /* grid-row-start: 2;
+    grid-row-end: 2; */
+    flex-direction: column;
 }
 
 #circle img{
-    margin: 10px 50px 0 50px;
-    width: 350px;
-    height: 350px;
+    margin: 5% 9% 0 10%;
+    width: 80%;
+    height: 300px;
     border-radius: 50%;
     border: solid;
     border-width: 7px;
@@ -268,13 +244,14 @@ body{
 }
 
 #product button{
-    margin: 0 175px 0 175px;
+    margin: 0 39% 0 39%;
     width: 100px;
     height: 40px;
     border-radius: 30px;
     background-color: #009E84;
     color: aliceblue;
     border: none;
+    margin-bottom: 20px;
 }
 
 #product button:hover{
@@ -301,7 +278,8 @@ body{
     display: flex;
     grid-template-columns: 1fr 1fr;
     row-gap: 10px;
-    column-gap: 56vw;
+    column-gap: 30%;
+    justify-content: space-between;
 }
 
 #info h3,h4{
@@ -311,4 +289,62 @@ body{
 a{
     text-decoration: none !important;
     color: aliceblue;
+}
+
+@media screen and (max-width: 770px) {
+    .header{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #cart{
+        flex: 1;
+        padding-top: 15px;
+        text-align: left;
+        flex-direction: column;
+    }
+
+    #about{
+        display: flex;
+        grid-template-columns: 1fr 1fr;
+        flex-direction: column;
+    }
+
+    #main img {
+        margin-top: 20px;
+        width: 100%;
+        height: 500px;
+    }
+    
+    #main h1 {
+        position: absolute;
+        top: 15%; 
+        left: 37px;
+        z-index: 1; 
+        width: 70%;
+    }
+    
+    #main h4 {
+        position: absolute; 
+        top: 35%; 
+        left: 37px; 
+        width: 55%;
+        padding-bottom: 60px;
+        font-weight: normal;
+        z-index: 1; 
+    }
+    
+    #main button {
+        position: absolute; 
+        bottom: 20px; 
+        left: 37px;
+        width: 200px;
+        height: 50px;
+        border-radius: 30px;
+        background-color: #EB5F27;
+        border: none;
+        color: aliceblue;
+        z-index: 1; 
+    }
 }

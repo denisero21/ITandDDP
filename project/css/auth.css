@@ -119,12 +119,32 @@ a{
     margin: 0 auto;
 }
 
+#input-wrap input:hover{
+    border: solid 3px aliceblue;
+    transition: .3s;
+}
+
 #input-wrap a{
     display: block;
     margin: 0 auto;
     text-align: center;
     font-size: 17px;
     margin-top: 20px;
+}
+
+@media screen and (max-width: 770px) {
+    .header{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #cart{
+        flex: 1;
+        padding-top: 15px;
+        text-align: left;
+        flex-direction: column;
+    }
 }
 
 
