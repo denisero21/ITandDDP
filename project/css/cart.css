@@ -15,6 +15,7 @@ body{
     flex: 2;
     height: 30px;
     font-size: 30px;
+    flex-direction: column;
 }
 
 #header__logo span{
@@ -25,23 +26,25 @@ body{
     cursor: pointer;
 }
 
-#navigation{
+#header__navigation{
     padding-top: 15px;
     flex: 2;
+    flex-direction: column;
 }
 
-#navigation td{
+#header__navigation td{
     display: flex;
 }
 
-#navigation tr{
+#header__navigation tr{
     flex: 1;
 }
 
-#cart{
+#header__cart{
     flex: 1;
     text-align: right;
     padding-top: 15px;
+    flex-direction: column;
 }
 
 a{
