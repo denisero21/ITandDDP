@@ -1,0 +1,125 @@
+a{
+    text-decoration: none !important;
+    color: aliceblue;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+#line{
+    margin-top: 15px;
+    border: solid #545454;
+    border-top: 3px;
+    margin-bottom: 25px;
+}
+
+#header-wrap{
+    text-align: center;
+    margin-top: 10vh;
+}
+
+#header-wrap label{
+    font-size: 40px;
+    border: solid 3px #009E84;
+    border-radius: 10px;
+    font-style: oblique;
+    color:#EB5F27;
+}
+
+#header-wrap label:hover{
+    font-size: 40px;
+    border-radius: 10px;
+    font-style: oblique;
+    transition: .3s ;
+    border: solid 3px #545454;
+    color: #545454;
+}
+
+#input-wrap label{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+
+#input-wrap input{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border: solid 3px #545454;
+    border-radius: 30px;
+    background-color: black;
+    color: aliceblue;
+    width: 25%;
+    height: 30px;
+}
+
+#input-wrap button{
+    width: 200px;
+    height: 45px;
+    border-radius: 30px;
+    background-color: #009E84;
+    border: none;
+    color: aliceblue;
+    transition: .3s;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+#input-wrap button:hover{
+    border: 5px solid #009E84;
+    background-color: black;
+    transition: .3s;
+}
+
+#input-wrap input:hover{
+    border: solid 3px aliceblue;
+    transition: .3s;
+}
+
+#input-wrap a{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+#reg{
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+#reg span{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#reg span:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 770px) {
+    .header{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #header__cart{
+        flex: 1;
+        padding-top: 15px;
+        text-align: left;
+        flex-direction: column;
+    }
+
+    #input-wrap input{
+        width: 40%;
+    }
+}

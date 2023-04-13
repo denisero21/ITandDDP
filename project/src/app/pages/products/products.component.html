@@ -1,0 +1,14 @@
+<div id="line"></div>
+<div id="products">
+    <div id="product-template">
+        <div id="product" *ngFor="let a of products">
+            <div id="circle">
+                <img src="{{a.src}}" alt="">
+            </div>
+            <h3>{{a.name}}</h3>
+            <h4>{{a.description}}</h4>
+            <h3>{{a.price}} BYN</h3>
+            <button (click)="toCart(a)">В корзину</button>
+        </div>
+    </div>
+</div>

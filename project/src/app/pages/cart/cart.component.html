@@ -1,0 +1,25 @@
+<body>
+    <div id="line"></div>
+    <div id="order">
+        <div id="products">
+            <div id="product" *ngFor="let a of cart">
+                <p><span><button>X</button> {{a.name}} | {{a.price}} BYN </span></p>
+            </div>
+        </div>
+        <div id="line2"></div>
+        <div id="info">
+            <label for="adress">Адрес:</label>
+            <select name="adress" id="adress" [(ngModel)]="location">
+                <option value="13">Пр-т Независимости, 13</option>
+                <option value="19">Ул. Чкалова, 19</option>
+                <option value="35">Пр-т Держинского, 35</option>
+            </select>
+            <label for="time">Время:</label>
+            <input type="time" id="time" [(ngModel)]="time">
+            <label for="note">Примечание:</label>
+            <textarea  id="note" [(ngModel)]="note"></textarea>
+            <label id="cost">Итоговая сумма: {{totalCost}} BYN</label>
+            <button (click)="takeOrder()">Оформить заказ</button>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,26 @@
+<body>
+  <header class="header">
+    <div id="header__logo"> 
+        <a href="index.html"><b><label style="color:#EB5F27"><span>B</span>aker</label><label style="color:#009E84"><span>H</span>ouse</label></b></a>
+    </div>
+    <nav id="header__navigation">
+        <td>
+            <tr><a href="index.html">Главная</a></tr>
+            <tr (click)="ToProducts()">Каталог</tr>
+            <tr (click)="ToAbout()">О нас</tr>
+            <tr (click)="ToContacts()">Контакты</tr>
+        </td>
+    </nav>
+    <div id="header__cart">
+        <td>
+            <tr *ngIf="user === undefined" (click)="ToAuth()">Войти</tr>
+            <tr *ngIf="user !== undefined" style="cursor:auto;">Приветствуем, {{user.login}}</tr>
+            <tr *ngIf="user !== undefined" (click)="LogOut()">Выйти</tr>
+            <tr (click)="ToCart()">Корзина</tr>
+        </td>
+    </div>
+  </header>
+  <div id="wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</body>

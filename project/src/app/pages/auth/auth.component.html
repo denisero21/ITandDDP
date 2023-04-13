@@ -1,0 +1,17 @@
+
+<div id="line"></div>
+<div id="header-wrap">
+    <label>BH</label>
+    <h1>Войти</h1>
+</div>
+<div id="input-wrap">
+    <label for="login">Логин</label>
+    <input type="text" name="login" id="login" [(ngModel)]="login">
+    <label for="password">Пароль</label>
+    <input type="password" name="password" id="password" [(ngModel)]="password">
+    <button (click)="Login()">Вход</button>
+    <div id="reg">
+        <span (click)="ToReg()">Зарегистрироваться</span>
+        <span (click)="ToChangPas()">Забыли Пароль?</span>
+    </div>
+</div>
