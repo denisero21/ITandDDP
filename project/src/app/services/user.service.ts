@@ -3,19 +3,22 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/models';
 import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { Product } from '../models/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private users: User[] = [];
-  private currentUser?: User;
+  public currentUser?: User;
   private check: boolean = true;
 
-  constructor(private http: HttpClient, private authService: AuthService) {
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) {
     this.currentUser = {
       login: 'a', 
-      password: '123'
+      password: '123',
+      cart: []
     }
     this.users.push(this.currentUser)
   }
@@ -40,6 +43,7 @@ export class UserService {
       this.users.push(user);
       this.currentUser = user;
       alert('Пользователь зарегестрирован')
+      this.router.navigateByUrl('')
       console.log(user)
     }
   }
@@ -54,6 +58,17 @@ export class UserService {
 
   setUser(user: User): void{
     this.currentUser = user
+  }
+
+  getCart(): Product[] | undefined{
+    return this.currentUser?.cart
+  }
+
+  setCart(cart: Product[]): void{
+    this.currentUser?.cart.splice(0, this.currentUser.cart.length)
+    cart.forEach(item =>{
+      this.currentUser?.cart.push(item)
+    })
   }
 
   logout(): void{

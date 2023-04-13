@@ -1,6 +1,7 @@
 export type User = {
     login: string,
     password: string,
+    cart: Product[]
 }
 
 export type Product = {
@@ -11,6 +12,7 @@ export type Product = {
 }
 
 export type Order = {
+    user: User,
     location: string,
     time: string, 
     note: string,

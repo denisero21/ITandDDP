@@ -27,7 +27,6 @@ export class RegComponent {
           password: this.password
         };
         this.userService.createUser(user);
-        this.router.navigateByUrl('')
       }
       else{
         alert('Пароли не совпадают')

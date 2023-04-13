@@ -13,6 +13,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChangPasComponent } from './pages/chang-pas/chang-pas.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { ChangPasComponent } from './pages/chang-pas/chang-pas.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

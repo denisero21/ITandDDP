@@ -13,7 +13,7 @@ export class ProductsComponent {
   constructor(private productsService: ProductsService) {}
 
   ngOnInit() {
-    this.productsService.getItems().subscribe((items: Product[]) => {
+    this.productsService.products.get$().subscribe((items: Product[]) => {
       this.products = items;
       console.log(items)
     });

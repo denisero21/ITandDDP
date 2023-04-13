@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/models/models';
 import { Order } from 'src/app/models/models';
+import { User } from 'src/app/models/models';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,11 +18,13 @@ export class CartComponent {
   time: string = '';
   note: string = '';
 
-  constructor(private productsService: ProductsService) {}
+  user: User | undefined = this.userService.getUser()
+
+  constructor(private productsService: ProductsService, private userService: UserService) {}
 
   getCart(): void{
     this.cart = [];
-    this.productsService.cart.forEach(item =>{
+    this.productsService.cart?.forEach(item =>{
       this.cart.push(item)
     })
   }
@@ -38,6 +42,7 @@ export class CartComponent {
     if(this.location !== '' && this.time !== '' && this.note !==''){
       if(this.totalCost !== 0){
         const order: Order = {
+          user: this.user!,
           location: this.location,
           time: this.time,
           note: this.note,
