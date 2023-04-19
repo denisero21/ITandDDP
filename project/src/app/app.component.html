@@ -23,7 +23,7 @@
   </header>
   <div *ngIf="check === true">
     <div *ngFor="let a of users">
-      <p>login: {{a.username}}, password: {{a.password}}</p>
+      <p>{{users.indexOf(a)}}. login: {{a.username}}, password: {{a.password}}</p>
     </div>
   </div>
   <div id="wrapper">

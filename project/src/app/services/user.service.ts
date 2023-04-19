@@ -11,7 +11,7 @@ import { Product } from '../models/models';
 })
 export class UserService {
   private users: User[] = [];
-  public currentUser : User | undefined;
+  public currentUser? : User;
   private check: boolean = true;
 
   constructor(private http: HttpClient, private authService: AuthService, private router: Router) {
@@ -51,6 +51,7 @@ export class UserService {
       this.router.navigateByUrl('')
       console.log(user)
     }
+    this.check = true;
   }
 
   updatePassword(user: User): void {
@@ -63,6 +64,7 @@ export class UserService {
 
   setUser(user: User): void{
     this.currentUser = user;
+    this.setCart([])
   }
 
   getCart(): Product[] | undefined{
