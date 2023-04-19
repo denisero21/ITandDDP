@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/models';
+import { AppComponent } from 'src/app/app.component';
+import { Product, User } from 'src/app/models/models';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class RegComponent {
   password: string = '';
   repeatPassword: string = '';
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router, private containerRef: AppComponent) {}
 
   ToAuth(){
     this.router.navigateByUrl('auth');
@@ -23,10 +24,12 @@ export class RegComponent {
     if(this.login !== '' && this.password !== '' && this.repeatPassword !== ''){
       if(this.password === this.repeatPassword){
         const user: User = {
-          login: this.login,
-          password: this.password
+          username: this.login,
+          password: this.password,
+          cart: [],
         };
         this.userService.createUser(user);
+        this.containerRef.setUser(user);
       }
       else{
         alert('Пароли не совпадают')

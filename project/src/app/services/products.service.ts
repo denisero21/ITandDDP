@@ -10,17 +10,13 @@ import { User } from '../models/models';
   providedIn: 'root'
 })
 export class ProductsService {
-  private productPath = '/src/api/db.json/products'
-  public cart = this.userService.getCart()
+  private productPath = "/assets/db.json";
+  public cart: Product[] = [];
   public totalCost: number = 0;
   public order?: Order;
 
 
   constructor(private http: HttpClient, private userService: UserService) { }
-
-  // getItems(): Observable<Product[]> {
-  //   return this.http.get<Product[]>(this.productPath);
-  // }
 
   public readonly products = {
     get$: (): Observable<Product[]> => {
@@ -33,31 +29,36 @@ export class ProductsService {
   }
 
   addToCart(product: Product): void{
-    this.userService.currentUser?.cart.push(product);
-    this.getTotalCost()
-    this.userService.setCart(this.cart!)
+    this.cart.push(product);
+    this.getTotalCost();
+    this.userService.setCart(this.cart);
+    alert('Товар добавлен в корзину');
   }
 
   removeFromCart(product: Product): void{
-    const index = this.cart!.indexOf(product);
+    const index = this.cart.indexOf(product);
     if(index !== -1){
-      this.userService.currentUser?.cart.splice(index, 1);
+      this.cart.splice(index, 1);
     }
-    this.getTotalCost()
+    this.userService.setCart(this.cart);
+    this.getTotalCost();
+    alert('Товар удален из корзины');
   }
-
-  getCart(){}
 
   getTotalCost(): number{
     this.totalCost = 0;
-    this.userService.currentUser?.cart.forEach(item =>{
+    this.cart.forEach(item =>{
       this.totalCost += item.price;
     })
     return this.totalCost;
   }
 
   takeOrder(order: Order): Order{
+    this.userService.setCart(this.cart);
     return this.order = order;
   }
 
+  getCart(): Product[]{
+    return this.cart;
+  }
 }

@@ -18,20 +18,28 @@ export class CartComponent {
   time: string = '';
   note: string = '';
 
-  user: User | undefined = this.userService.getUser()
 
-  constructor(private productsService: ProductsService, private userService: UserService) {}
+  constructor(private productsService: ProductsService, private userService: UserService) {
+    this.getCart();
+    this.getTotalCost();
+  }
 
   getCart(): void{
     this.cart = [];
-    this.productsService.cart?.forEach(item =>{
-      this.cart.push(item)
-    })
+    if(this.productsService.cart !== undefined){
+      this.productsService.cart?.forEach(item =>{
+        this.cart.push(item);
+      })
+    }
+    else{
+      alert('Вы не вошли в аккаунт')
+    }
   }
 
   removeFromCart(item: Product): void{
     this.productsService.removeFromCart(item);
     this.getCart();
+    this.getTotalCost()
   }
 
   getTotalCost(): number{
@@ -41,14 +49,27 @@ export class CartComponent {
   takeOrder(): void{
     if(this.location !== '' && this.time !== '' && this.note !==''){
       if(this.totalCost !== 0){
-        const order: Order = {
-          user: this.user!,
-          location: this.location,
-          time: this.time,
-          note: this.note,
-          cost: this.getTotalCost()
+        if(this.userService.getUser() !== undefined){
+          const order: Order = {
+            user: this.userService.getUser()!,
+            location: this.location,
+            time: this.time,
+            note: this.note,
+            cost: this.getTotalCost()
+          }
+          this.productsService.takeOrder(order);
+          console.log(order)
+          alert("Заказ принят!\nАдрес: " + this.location + "\nВремя подачи: " + this.time + "\nСтоимость: " + this.getTotalCost() + " BYN");
+          this.location = '';
+          this.time = '';
+          this.note = '';
+          this.productsService.cart = [];
+          this.getCart()
+          this.getTotalCost()
         }
-        this.productsService.takeOrder(order);
+        else{
+          alert('Вы не вошли в аккаунт')
+        }
       }
       else{
         alert('В вашей корзине нет товаров')

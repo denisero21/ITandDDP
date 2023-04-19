@@ -18,9 +18,8 @@ export class HomeComponent {
   }
 
   ngOnInit() {
-    this.productsService.products.get$().subscribe((items: Product[]) => {
+    this.productsService.products.get$().subscribe((items: any) => {
       this.products = items;
-      console.log(items)
     });
   }
 

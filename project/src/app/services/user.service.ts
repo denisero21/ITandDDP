@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/models';
@@ -11,16 +11,21 @@ import { Product } from '../models/models';
 })
 export class UserService {
   private users: User[] = [];
-  public currentUser?: User;
+  public currentUser : User | undefined;
   private check: boolean = true;
 
   constructor(private http: HttpClient, private authService: AuthService, private router: Router) {
-    this.currentUser = {
-      login: 'a', 
-      password: '123',
-      cart: []
-    }
-    this.users.push(this.currentUser)
+    this.authService.users.get$().subscribe(data => {
+      data.users.forEach(user => {
+				const newUser: User = {
+					username: user.username,
+					password: user.password,
+					cart: []
+				};
+				this.users.push(newUser);
+			})
+			console.log(data);
+		});
   }
 
   getUsers(): User[] {
@@ -34,7 +39,7 @@ export class UserService {
 
   createUser(user: User): void {
     this.getUsers().forEach(item =>{
-      if(user.login === item.login){
+      if(user.username === item.username){
         this.check = false
         alert('Пользователь с таким логином уже существует')
       }
@@ -50,14 +55,14 @@ export class UserService {
 
   updatePassword(user: User): void {
     this.users.forEach(item => {
-      if (item.login === user.login){
+      if (item.username === user.username){
         item.password = user.password;
       }
     });
   }
 
   setUser(user: User): void{
-    this.currentUser = user
+    this.currentUser = user;
   }
 
   getCart(): Product[] | undefined{
@@ -74,5 +79,6 @@ export class UserService {
   logout(): void{
     this.currentUser = undefined;
     alert('Вы вышли из аккаунта')
+    this.router.navigateByUrl('')
   }
 }

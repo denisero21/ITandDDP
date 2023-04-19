@@ -24,15 +24,16 @@ export class ChangPasComponent {
   ChangPas(): void{
     if(this.login !== '' && this.password !== '' && this.repeatPassword !== ''){
       this.userService.getUsers().forEach(item =>{
-          if (item.login === this.login){
+          if (item.username === this.login){
             if(this.password === this.repeatPassword){
               const user: User = {
-                login: this.login,
-                password: this.password
+                username: this.login,
+                password: this.password,
+                cart: item.cart,
               };
               this.userService.updatePassword(user);
-              alert('Пароль изменен')
-              this.router.navigateByUrl('')
+              alert('Пароль изменен, можете авторизоваться');
+              this.router.navigateByUrl('auth');
               this.check = false;
             }
             else{

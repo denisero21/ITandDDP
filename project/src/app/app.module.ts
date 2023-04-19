@@ -11,7 +11,8 @@ import { CartComponent } from './pages/cart/cart.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CorsInterceptor } from './cors.interceptor';
 import { ChangPasComponent } from './pages/chang-pas/chang-pas.component';
 import { UserService } from './services/user.service';
 
@@ -33,7 +34,9 @@ import { UserService } from './services/user.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: CorsInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
